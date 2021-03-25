@@ -1,0 +1,107 @@
+<view class="navArea">
+  <view class="nav" >
+    <scroll-view scroll-x class="bg-white nav" >
+  <view class="flex text-center ">
+    <view class="cu-item flex-sub {{index==TabCur?'text-cyan cur':''}}" wx:for="{{2}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+      <view wx:if="{{index==0}}">乘客</view>
+      <view wx:else>车主</view>>
+    </view>
+  </view>
+</scroll-view>
+  </view>
+</view>
+
+<map
+ id="myMap"
+ style="width: 100%; height:40vh; margin-top"
+ longitude="{{longitude}}" latitude="{{latitude}}"
+ scale='16'
+ polyline="{{polyline}}"
+ show-location
+ markers="{{markers}}"
+>
+</map>
+
+
+<form bindsubmit="formSubmit">
+ 	
+	<view class="cu-form-group ">
+		<view class="title">出发地</view>
+    <!--绑定输入事件-->
+		<input name="departure" placeholder="出发地" style="text-align:right" bindinput="getSuggestDepart" value="{{depart}}"></input>
+	</view>
+
+<!--关键词输入提示列表渲染-->
+<!--选择地点后就不显示了-->
+<view wx:if="{{!isTap&&onDepart}}">
+  <view wx:for="{{suggestion}}" wx:key="index">
+    <!--绑定回填事件-->
+    <view>
+    <!--根据需求渲染相应数据-->
+    <!--渲染地址title-->
+    <view style="text-align:center;" bindtap="backfillDepart" id="{{index}}">{{item.title}}</view>
+    <!--渲染详细地址-->
+    <view style="font-size:12px;color:#666;text-align:center;">{{item.addr}}</view>
+    </view>
+  </view>
+</view>
+
+
+
+  <view class="cu-form-group ">
+		<view class="title">目的地</view>
+		<input name="destination" placeholder="目的地" style="text-align:right" bindinput="getSuggestDest" value="{{dest}}"></input>
+	</view>
+
+<view wx:if="{{!isTap&&onDest}}">
+  <view wx:for="{{suggestion}}" wx:key="index">
+    <view>
+    <view style="text-align:center;" bindtap="backfillDest" id="{{index}}">{{item.title}}</view>
+    <view style="font-size:12px;color:#666;text-align:center;">{{item.addr}}</view>
+    </view>
+  </view>
+</view>
+
+
+  <view class="cu-form-group ">
+		<view wx:if="{{TabCur==0}}" class="title">乘车人数</view>
+    <view  wx:else class="title">可乘坐人数</view>
+		<picker bindchange="peoplePickerChange" value="{{peopleIndex}}" range="{{people}}">
+			<view class="picker">
+				{{peopleIndex?people[peopleIndex]+'人':(TabCur==0?'乘车人数':'可乘坐人数')}}
+			</view>
+		</picker>
+  </view>
+  
+  <view class="cu-form-group">
+    <view class="title">出发时间</view>
+    <picker mode="multiSelector" range="{{dateArray}}" value="{{dateIndex}}" bindchange="datePickerChange">
+    <view class="picker">{{dateVal?dateVal:'请选择时间'}}</view>
+    </picker>
+	</view>
+	
+	<view wx:if="{{TabCur==0}}" class="cu-form-group " >
+		<view class="title">备注</view>
+		<input name="postscript" placeholder="备注" style="text-align:right"></input>
+  </view>
+
+<view  class="cu-form-group " >
+		
+		
+  </view>
+
+<view  class="cu-form-group " >
+		
+		
+  </view>
+  
+	<view class="bottom-area">
+		<button class="weui-btn_cell submit-btn" form-type="submit">发布</button>
+	</view>
+	
+	
+
+    
+</form>
+
+

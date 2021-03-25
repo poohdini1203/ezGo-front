@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/schedul/index",
+    "pages/post/index",
+    "pages/my/index/index",
+    "pages/my/settings/settings",
+    "pages/index/index",
+    "pages/my/settings/bind/bind",
+    "pages/my/settings/change/change",
+    "pages/my/driver/driver"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "EZGO",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "00ae9d",
+    "backgroundColor": "fafafa",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/schedul/index",
+        "text": "行程",
+        "iconPath": "images/schedul.png",
+        "selectedIconPath": "images/schedul_selected.png"
+      },
+      {
+        "pagePath": "pages/post/index",
+        "text": "发布",
+        "iconPath": "images/post.png",
+        "selectedIconPath": "images/post_selected.png"
+      },
+      {
+        "pagePath": "pages/my/index/index",
+        "text": "个人中心",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_selected.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

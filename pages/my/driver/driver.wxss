@@ -1,0 +1,6 @@
+.bottom-area .submit-btn {
+    position: fixed;
+     bottom: 0;
+     width: 100%;
+     background-color: #00ae9d;
+   }

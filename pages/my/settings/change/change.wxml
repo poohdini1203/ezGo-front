@@ -1,0 +1,28 @@
+<form bindsubmit="formSubmit">
+   
+
+<view class="cu-form-group margin-top" >
+		<view class="title">手机号码</view>
+		<input placeholder="输入框带标签"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag bg-blue">
+				+86
+			</view>
+			<view class="cu-tag line-blue">
+				中国大陆
+			</view>
+		</view>
+	</view>
+
+
+
+	<view class="cu-form-group">
+		<view class="title">验证码</view>
+		<input placeholder="输入框带个按钮"></input>
+		<button class="cu-btn bg-green shadow">验证码</button>
+	</view>
+	
+    <view class="bottom-area">
+		<button class="weui-btn_cell submit-btn" form-type="submit">修改</button>
+	</view>
+</form>

@@ -1,0 +1,27 @@
+<form bindsubmit="formSubmit">
+    <view class="cu-bar bg-white margin-top">
+		<view class="action">
+			上传身份证正反面
+		</view>
+		<view class="action">
+			{{imgList.length}}/2
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+   <view class="bottom-area">
+		<button class="weui-btn_cell submit-btn" form-type="submit">认证</button>
+	</view>
+</form>
