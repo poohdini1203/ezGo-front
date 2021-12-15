@@ -1,0 +1,78 @@
+<wxs module="timeCoverter" src="../../../../utils/util.wxs"></wxs>
+
+<map
+ id="myMap"
+ style="width: 100%; height:60vh; margin-top"
+ longitude="{{longitude}}" latitude="{{latitude}}"
+ scale='16'
+ polyline="{{polyline}}"
+ show-location
+ markers="{{markers}}"
+>
+</map>
+
+
+<view class="cu-list menu ">
+
+    <view  class="cu-item ">
+        <view class="driver">
+            <view class="car-info">
+                <text class="plate text-xl ">{{tripInfo.driverInfo.plateNumber}}</text>
+                <text class="model">{{tripInfo.driverInfo.model}}</text>
+                <text class="cuIcon-title text-sm"></text>
+                <text class="color">{{tripInfo.driverInfo.color}}</text>
+            </view>
+            <view class="driver-info">
+                <text class="name">{{tripInfo.driverInfo.userInfo.name}}师傅</text>
+                <text wx:if="{{driverOverallRating.rateTimes!=0}}" class="cuIcon-favorfill text-yellow">{{driverOverallRating.averageRating}}分  共{{driverOverallRating.rateTimes}}次评价</text>
+                <text wx:else class="text-yellow">暂无评价</text>
+            </view>
+        </view>
+        <view class="avatar" >
+            <image src="{{tripInfo.driverInfo.userInfo.avatarUrl}}" class="png"/>
+        </view>
+    </view>
+    
+    <view class="cu-item " >
+      <view class="trip">
+          <view class="time-people text-grey">
+             
+                 <text class="cuIcon-timefill text-sm"></text>
+                 <text class="time">{{timeCoverter.timeStampToStr(tripInfo.departTime)}}</text>
+             
+             
+                 <text class="cuIcon-friendfill"></text>
+                 <text class="people">{{tripInfo.currentPeople}}/{{tripInfo.seatCapacity}}人</text>
+             
+          </view>
+        
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-green"></text>{{tripInfo.departure}}   
+        </view>
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-orange"></text>{{tripInfo.destination}}   
+        </view>
+        <view wx:if="{{tripInfo.postscript}}" class="text-grey text-df">
+            <text class="cuIcon-comment "></text>{{tripInfo.postscript}}
+        </view>
+      </view>
+
+    </view>
+
+    <view class="cu-bar tabbar bg-white border">
+    <view class="action" bindtap="call">
+      <view class="cuIcon-cu-image">
+        <image src="../../../../images/call.png"></image>
+      </view>
+      <view class="text-darkGray">打电话</view>
+    </view>
+    <view class="action" bindtap="joinDriver" >
+      <view class="cuIcon-cu-image">
+        <image src="{{sentInvitation?'../../../../images/confirm_selected.png':'../../../../images/confirm.png'}}"></image>
+      </view>
+      <view class="text-darkGray">{{sentInvitation?'已发送邀请':'请他接我'}}</view>
+    </view>
+  </view>
+  
+  
+</view>

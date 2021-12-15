@@ -1,0 +1,66 @@
+<wxs module="timeCoverter" src="../../../../utils/util.wxs"></wxs>
+
+
+
+<view class="tripInfo">
+    <view class="cu-list menu margin-top">
+        <view class="cu-item">
+            <view class="content">
+                <view class="time-people text-grey text-xl">
+                    <text class="cuIcon-timefill text-sm"></text>
+                    <text class="time">{{timeCoverter.timeStampToStr(tripInfo.departTime)}}</text>
+                    <text class="cuIcon-friendfill"></text>
+                    <text class="people">可乘坐人数  {{tripInfo.seatCapacity-tripInfo.currentPeople}}</text>
+                 </view>
+                 <view class="text-grey text-xl">
+                    <text class="cuIcon-title text-green"></text>{{tripInfo.departure}}   
+                </view>
+                <view class="text-grey text-xl">
+                    <text class="cuIcon-title text-orange"></text>{{tripInfo.destination}}   
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+ <view  class="cu-bar bg-grey solid-bottom ">
+    <view class="action ">
+      <text class="cuIcon-title text-orange "></text> 乘客邀请
+    </view>
+</view>
+
+<view class="invitation">
+    <view class="cu-list menu ">
+    <view class="cu-item " wx:for="{{invitations}}" wx:for-item="trip" >
+
+      <view class="content">
+          <view class="time-people text-grey">
+             
+                 <text class="cuIcon-timefill text-sm"></text>
+                 <text class="time">{{timeCoverter.timeStampToStr(trip.departTime)}}</text>
+            
+             
+                 <text class="cuIcon-friendfill"></text>
+                 <text class="people">{{trip.howManyPeople}}人</text>
+             
+          </view>
+        
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-green"></text>{{trip.departure}}   
+        </view>
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-orange"></text>{{trip.destination}}   
+        </view>
+        <view wx:if="{{trip.postscript}}" class="text-grey text-df">
+            <text class="cuIcon-comment "></text>{{trip.postscript}}
+        </view>
+      </view>
+
+      
+      <button class="cu-btn round bg-cyan" bindtap="accept" data-passenger-trip-id="{{trip.id}}">接受</button>
+      <button class="cu-btn round bg-orange"  bindtap="refuse" data-passenger-trip-id="{{trip.id}}">拒绝</button>
+      
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,40 @@
+<view class="cu-list menu">
+	
+	<view class="cu-item arrow" >
+		<text >昵称</text>
+		<view class="action">
+			<navigator class="content" hover-class="none" url="changeNickname/changeNickname" >
+				<text class="text-grey url-text">{{nickName}}</text>
+       		 </navigator>
+        </view>
+	</view>
+
+
+	<view class="cu-item arrow" >
+		<text >手机</text>
+		<view class="action">
+			<navigator class="content" hover-class="none" url="changeCellphone/changeCellphone" >
+				<text class="text-grey url-text">{{cellphone}}</text>
+       		 </navigator>
+        </view>
+	</view>
+
+	<view class="cu-item " >
+		<text >姓名</text>
+		<view class="action">
+				<text class="text-grey  plain-text">{{name}}</text>
+        </view>
+		
+	</view>
+
+	<view class="cu-item " >
+		<text >身份证</text>
+		<view class="action">
+				<text class="text-grey plain-text">{{IDCard}}</text>
+        </view>
+	</view>
+
+
+</view>
+
+

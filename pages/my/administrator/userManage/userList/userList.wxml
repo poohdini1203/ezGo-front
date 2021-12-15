@@ -1,0 +1,21 @@
+<view  class="cu-bar bg-white solid-bottom ">
+    <view class="action ">
+      <text class="cuIcon-title text-cyan "></text> 用户列表
+    </view>
+</view>
+
+
+<view class="cu-list menu " >
+    <view class="cu-item" wx:for="{{userList}}" wx:for-item="userInfo" bindtap="toUserDetail" data-user-id="{{userInfo.id}}">
+     
+      <view class="avatar">
+            <image src="{{userInfo.avatarUrl}}" class="png"/>
+      </view>
+      <view class="user" >
+            <view class="car">
+                <text class="name">{{userInfo.nickName}}</text>
+            </view>
+      </view>
+      
+    </view>
+  </view>

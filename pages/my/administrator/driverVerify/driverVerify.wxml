@@ -1,0 +1,26 @@
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text>车主申请
+    </view>
+  </view>
+<view class="cu-list menu " >
+    <view class="cu-item" wx:for="{{driverRequests}}" wx:for-item="driverInfo"  >
+
+      <view class="content" bindtap="toDetail" data-driver-id="{{driverInfo.id}}">
+            <view class="car">
+                <text class="plate text-xl ">{{driverInfo.plateNumber}}</text>
+                <text class="model">{{driverInfo.model}}</text>
+                <text class="cuIcon-title text-sm"></text>
+                <text class="color">{{driverInfo.color}}</text>
+            </view>
+            <view class="driver-info">
+                {{driverInfo.userInfo.name}}
+            </view>
+      </view>
+
+      <button class="cu-btn round bg-cyan" bindtap="pass" data-driver-id="{{driverInfo.id}}">通过</button>
+      <button class="cu-btn round bg-orange"  bindtap="reject" data-driver-id="{{driverInfo.id}}">拒绝</button>
+      
+    </view>
+  </view>

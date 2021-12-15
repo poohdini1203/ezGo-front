@@ -1,0 +1,19 @@
+<form bindsubmit="formSubmit" class="margin-top">
+    <view class="cu-form-group ">
+		<view  class="title">乘车人数</view>
+		<picker bindchange="peoplePickerChange" value="{{peopleIndex}}" range="{{people}}">
+			<view class="picker">
+				{{peopleIndex?people[peopleIndex]+'人':'乘车人数'}}
+			</view>
+		</picker>
+     </view>
+  
+	<view  class="cu-form-group " >
+		<view class="title">备注</view>
+		  <input name="postscript" placeholder="备注" style="text-align:right"></input>
+    </view>
+ 
+    <view class="bottom-area">
+		<button class="submit-btn" form-type="submit" >加入行程</button>
+	</view>
+</form>

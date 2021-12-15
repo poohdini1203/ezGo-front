@@ -1,0 +1,5 @@
+
+<view class="cu-form-group margin-top">
+		<textarea maxlength="300" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="输入举报内容"></textarea>
+</view>
+<button wx:if="{{!submited}}" class="report-btn" bindtap="tapReport">提交</button>

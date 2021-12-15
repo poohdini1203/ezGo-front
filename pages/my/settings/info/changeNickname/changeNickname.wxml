@@ -1,0 +1,9 @@
+<form bindsubmit="formSubmit">
+    <view class="cu-form-group">
+		<view class="title">昵称</view>
+		<input placeholder="输入框带标签"  value="{{nickName}}"  name='nickName'></input>
+		
+	</view>
+
+	<button class=" submit-btn" form-type="submit">确定</button>
+</form>

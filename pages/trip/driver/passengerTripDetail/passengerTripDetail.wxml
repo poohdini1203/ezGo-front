@@ -1,0 +1,70 @@
+<wxs module="timeCoverter" src="../../../../utils/util.wxs"></wxs>
+
+<map
+ id="myMap"
+ style="width: 100%; height:60vh; margin-top"
+ longitude="{{longitude}}" latitude="{{latitude}}"
+ scale='16'
+ polyline="{{polyline}}"
+ show-location
+ markers="{{markers}}"
+>
+</map>
+
+
+<view class="cu-list menu ">
+
+    <view  class="cu-item ">
+        <view class="passenger">
+            <view class="passenger-info">
+                <text class="name text-xl ">{{tripInfo.userInfo.nickName}}</text>
+            </view>
+        </view>
+        <view class="avatar">
+            <image src="{{tripInfo.userInfo.avatarUrl}}" class="png"/>
+        </view>
+    </view>
+    
+    <view class="cu-item " >
+      <view class="trip">
+          <view class="time-people text-grey">
+             
+                 <text class="cuIcon-timefill text-sm"></text>
+                 <text class="time">{{timeCoverter.timeStampToStr(tripInfo.departTime)}}</text>
+             
+             
+                 <text class="cuIcon-friendfill"></text>
+                 <text class="people">{{tripInfo.howManyPeople}}人</text>
+             
+          </view>
+        
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-green"></text>{{tripInfo.departure}}   
+        </view>
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-orange"></text>{{tripInfo.destination}}   
+        </view>
+        <view wx:if="{{tripInfo.postscript}}" class="text-grey text-df">
+            <text class="cuIcon-comment "></text>{{tripInfo.postscript}}
+        </view>
+      </view>
+
+    </view>
+
+    <view class="cu-bar tabbar bg-white border">
+    <view class="action" bindtap="call">
+      <view class="cuIcon-cu-image">
+        <image src="../../../../images/call.png"></image>
+      </view>
+      <view class="text-darkGray">打电话</view>
+    </view>
+    <view class="action" bindtap="setDriver">
+      <view class="cuIcon-cu-image">
+        <image src="{{hasDriver?'../../../../images/confirm_selected.png':'../../../../images/confirm.png'}}"></image>
+      </view>
+      <view class="text-darkGray">{{hasDriver?'已接单':'接单'}}</view>
+    </view>
+  </view>
+  
+  
+</view>

@@ -1,0 +1,45 @@
+.navArea {
+    height: 45px;
+  }
+  .navArea .nav {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+  }
+  .cu-bar .action {
+    margin-top: 8rpx;
+  }
+  .cu-bar navigator {
+    margin-left: 280rpx;
+    font-size: 30rpx;
+  }
+  .cu-bar image {
+    width: 90rpx;
+    height: 100rpx;
+  }
+  .cu-item {
+    margin-bottom: 10rpx;
+  }
+  .cu-item .content {
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+  }
+  .cu-item .content .time-people {
+    margin-bottom: 10rpx;
+  }
+  .cu-item .content .time-people .cuIcon-timefill {
+    margin-right: 12rpx;
+  }
+  .cu-item .content .time-people .time {
+    margin-right: 30rpx;
+  }
+  .cu-item .content .time-people .cuIcon-friendfill {
+    margin-right: 10rpx;
+  }
+  .cu-item .content .cuIcon-title {
+    margin-right: 15rpx;
+  }
+  .cu-item .content .cuIcon-comment {
+    margin-right: 15rpx;
+  }
+  

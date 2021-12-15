@@ -1,0 +1,22 @@
+.cu-item .avatar image {
+  height: 75rpx;
+  width: 75rpx;
+  border-radius: 50%;
+}
+.btn-area {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+.btn-area .forbid-btn {
+  color: white;
+  background-color: orange;
+  width: 100vw;
+  margin: 0 auto;
+}
+.btn-area .active-btn {
+  color: white;
+  background-color: #00ae9d;
+  width: 100vw;
+  margin: 0 auto;
+}

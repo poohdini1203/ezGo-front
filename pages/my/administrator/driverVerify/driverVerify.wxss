@@ -1,0 +1,12 @@
+.car {
+  margin-top: 20rpx;
+}
+.car .plate {
+  margin-right: 30rpx;
+}
+.driver-info {
+  margin-bottom: 10rpx;
+}
+.cu-btn {
+  margin-right: 10rpx;
+}

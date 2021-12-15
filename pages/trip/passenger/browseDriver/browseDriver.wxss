@@ -1,0 +1,31 @@
+.search-btn {
+  width: 40vw;
+  background-color: #00ae9d;
+  color: white;
+  margin-left: 150rpx;
+}
+.cu-item {
+  margin-bottom: 10rpx;
+}
+.cu-item .content {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.cu-item .content .time-people {
+  margin-bottom: 10rpx;
+}
+.cu-item .content .time-people .cuIcon-timefill {
+  margin-right: 12rpx;
+}
+.cu-item .content .time-people .time {
+  margin-right: 30rpx;
+}
+.cu-item .content .time-people .cuIcon-friendfill {
+  margin-right: 10rpx;
+}
+.cu-item .content .cuIcon-title {
+  margin-right: 15rpx;
+}
+.cu-item .content .cuIcon-comment {
+  margin-right: 15rpx;
+}

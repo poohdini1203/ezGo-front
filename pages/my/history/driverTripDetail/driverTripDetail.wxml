@@ -1,0 +1,64 @@
+<wxs module="timeCoverter" src="../../../../utils/util.wxs"></wxs>
+
+<map
+ id="myMap"
+ style="width: 100%; height:60vh; margin-top"
+ longitude="{{longitude}}" latitude="{{latitude}}"
+ scale='16'
+ polyline="{{polyline}}"
+ show-location
+ markers="{{markers}}"
+>
+</map>
+ 
+
+
+
+<view class="cu-list menu ">
+    <view wx:if="{{tripInfo.finished}}" class="cu-item" >
+        <view class="cu-tag round bg-cyan">行程已完成</view>
+    </view> 
+    <view wx:else class="cu-item " >
+        <view class="cu-tag round bg-red">行程被取消</view>
+    </view> 
+    <view  class="cu-bar bg-white solid-bottom ">
+        <view class="action ">
+            <text class="cuIcon-title text-cyan "></text> 我的乘客
+        </view>
+    </view>
+    <view  wx:if="{{tripInfo.finished}}" class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{passengerTrips}}" wx:for-item="passengerTrip" 
+            bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+        <view class="content">
+            <view class="time-people text-grey">
+                    <text class="cuIcon-timefill text-sm"></text>
+                    <text class="time">{{timeCoverter.timeStampToStr(passengerTrip.departTime)}}</text>
+                    <text class="cuIcon-friendfill"></text>
+                    <text class="people">{{passengerTrip.howManyPeople}}人</text>  
+            </view>
+            <view class="text-grey text-df">
+                <text class="cuIcon-friendfill"></text>{{passengerTrip.userInfo.nickName}}
+            </view>
+            <view class="text-grey text-df">
+                <text class="cuIcon-title text-green"></text>{{passengerTrip.departure}}   
+            </view>
+            <view class="text-grey text-df">
+                <text class="cuIcon-title text-orange"></text>{{passengerTrip.destination}}   
+            </view>
+            <view wx:if="{{passengerTrip.postscript}}" class="text-grey text-df">
+                <text class="cuIcon-comment "></text>{{passengerTrip.postscript}}
+            </view>
+       </view>
+       <view class="cu-tag round bg-{{passengerTrip.pickedUp?'cyan':'orange'}}">{{passengerTrip.pickedUp?(passengerTrip.finished?'已到达':'待确认到达'):'待确认上车'}}</view>
+       
+       <view class="move">
+         <view class="bg-grey" bindtap="phonecall" data-cellphone="{{passengerTrip.userInfo.cellphone}}">打电话</view>
+         <view class="bg-red" bindtap="report" data-trip-id="{{passengerTrip.id}}" data-receiver-id="{{passengerTrip.userInfo.id}}">投诉</view>
+       </view>
+    </view>
+    
+    
+
+</view>
+    
+
+

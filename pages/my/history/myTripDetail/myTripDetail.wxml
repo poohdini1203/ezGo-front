@@ -1,0 +1,67 @@
+<wxs module="timeCoverter" src="../../../../utils/util.wxs"></wxs>
+
+<map
+ id="myMap"
+ style="width: 100%; height:60vh; margin-top"
+ longitude="{{longitude}}" latitude="{{latitude}}"
+ scale='16'
+ polyline="{{polyline}}"
+ show-location
+ markers="{{markers}}"
+>
+</map>
+
+
+<view class="cu-list menu ">
+    <view  wx:if="{{tripInfo.finished}}" class="cu-item ">
+        <view class="driver">
+            <view class="cu-tag round bg-cyan">行程已结束</view>
+            <view class="car-info">
+                <text class="plate text-xl ">{{driverInfo.plateNumber}}</text>
+                <text class="model">{{driverInfo.model}}</text>
+                <text class="cuIcon-title text-sm"></text>
+                <text class="color">{{driverInfo.color}}</text>
+            </view>
+            <view class="driver-info">
+                <text class="name">{{driverInfo.userInfo.name}}师傅</text>
+                <text wx:if="{{driverOverallRating.rateTimes!=0}}" class="cuIcon-favorfill text-yellow">{{driverOverallRating.averageRating}}分  共{{driverOverallRating.rateTimes}}次评价</text>
+                <text wx:else class="text-yellow">暂无评价</text>
+            </view>
+        </view>
+        <view class="avatar">
+            <image src="{{driverInfo.userInfo.avatarUrl}}" />
+        </view>
+    </view>
+    
+
+    <view wx:else class="cu-item " >
+        <view class="cu-tag round bg-red">行程被取消</view>
+    </view> 
+
+  <view wx:if="{{tripInfo.finished&&tripInfo.hasDriver}}" class="cu-bar tabbar bg-white solid-bottom">
+    <view class="action" bindtap="call">
+      <view class="cuIcon-cu-image">
+        <image src="../../../../images/call.png"></image>
+      </view>
+      <view class="text-darkGray">打电话</view>
+    </view>
+    <view class="action" bindtap="report">
+      <view class="cuIcon-cu-image">
+        <image src="../../../../images/report.png"></image>
+      </view>
+      <view class="text-darkGray">举报司机</view>
+    </view>
+  </view>
+  
+  
+  <view wx:if="{{tripInfo.finished}}" class="cu-item">
+      
+      <view class="rating-area">
+          <text class="sign">您的评价会让司机做得更好！</text>
+          <star-component class="star" bind:starNum="onStarNum"></star-component>
+          <button wx:if="{{!rated}}" class="rate-btn" bindtap="tapSubmit">提交</button>
+      </view>
+  </view>
+  
+ 
+</view>

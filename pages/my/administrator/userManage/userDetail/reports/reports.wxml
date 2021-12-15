@@ -1,0 +1,24 @@
+
+<wxs module="timeCoverter" src="/utils/util.wxs"></wxs>
+
+<view  class="cu-bar bg-white solid-bottom ">
+    <view class="action ">
+      <text class="cuIcon-title text-orange "></text> 投诉列表
+    </view>
+</view>
+
+<view class="cu-card dynamic no-card" wx:for="{{reportList}}" wx:for-item="report">
+    <view class="cu-item " >
+        <view class="cu-list menu">
+            <view class="cu-item">
+                <view class="content">
+                    <text class="time">投诉时间 {{timeCoverter.timeStampToStr(report.createTime)}}</text>
+                </view>
+                <view class="cu-tag round bg-{{report.type==0?'orange':'cyan'}}">{{report.type==0?'作为车主':'作为乘客'}}</view>
+            </view>
+        </view>
+        <view class="text-content">
+            {{report.content}}
+        </view>
+    </view>
+</view>

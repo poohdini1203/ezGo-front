@@ -1,0 +1,63 @@
+.cu-bar .nav {
+  margin-left: 200rpx;
+}
+.cu-bar .action {
+  margin-top: 8rpx;
+}
+.cu-bar navigator {
+  margin-left: 280rpx;
+  font-size: 30rpx;
+}
+.cu-bar image {
+  width: 90rpx;
+  height: 100rpx;
+}
+.cu-item {
+  margin-bottom: 10rpx;
+}
+.cu-item .content {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.cu-item .content .time-people {
+  margin-bottom: 10rpx;
+}
+.cu-item .content .time-people .cuIcon-timefill {
+  margin-right: 12rpx;
+}
+.cu-item .content .time-people .time {
+  margin-right: 30rpx;
+}
+.cu-item .content .time-people .cuIcon-friendfill {
+  margin-right: 10rpx;
+}
+.cu-item .content .cuIcon-friendfill {
+  margin-right: 12rpx;
+}
+.cu-item .content .cuIcon-title {
+  margin-right: 15rpx;
+}
+.cu-item .content .cuIcon-comment {
+  margin-right: 15rpx;
+}
+.cancel-btn {
+  position: fixed;
+  bottom: 0;
+  border-radius: 0;
+  color: aliceblue;
+  font-size: 40rpx;
+  height: 110rpx;
+  width: 50vw;
+  background-color: #f97a36;
+}
+.finish-btn {
+  position: fixed;
+  bottom: 0;
+  border-radius: 0;
+  color: aliceblue;
+  margin-left: 50vw;
+  font-size: 40rpx;
+  height: 110rpx;
+  width: 50vw;
+  background-color: #00ae9d;
+}

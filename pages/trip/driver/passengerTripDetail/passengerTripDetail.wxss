@@ -1,0 +1,27 @@
+.cu-item .trip {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.cu-item .trip .time-people {
+  margin-bottom: 10rpx;
+}
+.cu-item .trip .time-people .cuIcon-timefill {
+  margin-right: 12rpx;
+}
+.cu-item .trip .time-people .time {
+  margin-right: 30rpx;
+}
+.cu-item .trip .time-people .cuIcon-friendfill {
+  margin-right: 10rpx;
+}
+.cu-item .trip .cuIcon-comment {
+  margin-right: 15rpx;
+}
+.cu-item .trip .cuIcon-title {
+  margin-right: 15rpx;
+}
+.cu-item .avatar image {
+  height: 75rpx;
+  width: 75rpx;
+  border-radius: 50%;
+}

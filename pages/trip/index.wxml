@@ -1,0 +1,89 @@
+
+<wxs module="timeCoverter" src="../../utils/util.wxs"></wxs>
+
+<view class="navArea">
+  <view class="nav" >
+    <scroll-view scroll-x class="bg-white nav" >
+  <view class="flex text-center ">
+    <view class="cu-item flex-sub {{index==TabCur?'text-cyan cur':''}}" wx:for="{{2}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+      <view wx:if="{{index==0}}">乘客</view>
+      <view wx:else>车主</view>>
+    </view>
+  </view>
+</scroll-view>
+  </view>
+</view>
+
+
+<view  class="cu-bar bg-white solid-bottom ">
+    <view class="action ">
+      <text class="cuIcon-title text-orange "></text> 我的行程
+    </view>
+    <navigator wx:if="{{TabCur==0}}" url="passenger/browseDriver/browseDriver">
+           查看司机行程
+    </navigator>
+    <navigator wx:else url="driver/browsePassenger/browsePassenger">
+            查看乘客行程
+    </navigator>
+    <image src="../../images/arrow.png" mode="aspectFit"/>
+</view>
+
+  <view class="cu-list menu " wx:if="{{TabCur==0}}">
+    <view class="cu-item" wx:for="{{myPassengerTrips}}" wx:for-item="trip" data-trip-id="{{trip.id}}" bindtap="toPassengerTripDetail">
+
+      <view class="content">
+          <view class="time-people text-grey">
+             <view class="time-sec">
+                 <text class="cuIcon-timefill text-sm"></text>
+                 <text class="time">{{timeCoverter.timeStampToStr(trip.departTime)}}</text>
+             </view>
+             <view class="people-sec">
+                 <text class="cuIcon-friendfill"></text>
+                 <text class="people">{{trip.howManyPeople}}人</text>
+             </view>
+          </view>
+        
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-green"></text>{{trip.departure}}   
+        </view>
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-orange"></text>{{trip.destination}}   
+        </view>
+        <view wx:if="{{trip.postscript}}" class="text-grey text-df">
+            <text class="cuIcon-comment "></text>{{trip.postscript}}
+        </view>
+      </view>
+
+      <view class="cu-tag round bg-{{trip.hasDriver?'cyan':'orange'}}">{{trip.hasDriver?(trip.pickedUp?'行驶中':'待出发'):'待接单'}}</view>
+      
+    </view>
+  </view>
+
+  <view class="cu-list menu" wx:else>
+    <view class="cu-item " wx:for="{{myDriverTrips}}" wx:for-item="trip" data-trip-id="{{trip.id}}"  bindtap="toDriverTripDetail">
+      <view class="content">
+          <view class="time-people text-grey">
+             <view class="time-sec">
+                 <text class="cuIcon-timefill text-sm"></text>
+                 <text class="time">{{timeCoverter.timeStampToStr(trip.departTime)}}</text>
+             </view>
+             <view class="people-sec">
+                 <text class="cuIcon-friendfill"></text>
+                 <text class="people">{{trip.currentPeople}}/{{trip.seatCapacity}}人</text>
+             </view>
+          </view>
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-green"></text>{{trip.departure}}   
+        </view>
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-orange"></text>{{trip.destination}}   
+        </view>
+        <view wx:if="{{trip.postscript}}" class="text-grey text-df">
+            <text class="cuIcon-comment "></text>{{trip.postscript}}
+        </view>
+      </view>
+
+      <view class="cu-tag round bg-cyan">待出发</view>
+      
+    </view>
+  </view>

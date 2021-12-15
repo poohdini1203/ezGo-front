@@ -1,0 +1,7 @@
+.userInfo .cu-bar {
+    margin-top: 2rpx;
+  }
+  .vehicleInfo .cu-bar {
+    margin-top: 2rpx;
+  }
+  

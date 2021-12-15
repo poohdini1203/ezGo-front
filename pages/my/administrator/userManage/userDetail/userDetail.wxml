@@ -1,0 +1,72 @@
+
+<view class="userInfo">
+    
+
+    <view class="cu-list menu">
+        <view class="cu-item " >
+            <text >头像</text>
+            <view class="avatar">
+                 <image  src="{{userInfo.avatarUrl}}" class="png" />
+            </view>
+        </view>
+        <view class="cu-item " >
+            <text >昵称</text>
+            <view class="action">
+                <navigator class="content" hover-class="none" url="changeNickname/changeNickname" >
+                    <text class="text-grey url-text">{{userInfo.nickName}}</text>
+                </navigator>
+            </view>
+        </view>
+        <view class="cu-item " >
+            <text >手机</text>
+            <view class="action">
+                <navigator class="content" hover-class="none" url="changeCellphone/changeCellphone" >
+                    <text class="text-grey url-text">{{userInfo.cellphone}}</text>
+                </navigator>
+            </view>
+        </view>
+        <view class="cu-item " >
+            <text >姓名</text>
+            <view class="action">
+                    <text class="text-grey  plain-text">{{userInfo.name}}</text>
+            </view>
+        </view>
+        <view class="cu-item " >
+            <text >身份证</text>
+            <view class="action">
+                    <text class="text-grey plain-text">{{userInfo.iDCard}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="userTrips/userTrips?openID={{userID}}&isDriver={{isDriver}}" hover-class="none">
+        <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
+        <text class="cuIcon-timefill text-grey"></text>
+        <text class="text-grey">查看用户行程</text>
+      </navigator>
+    </view>
+
+    <view class="cu-item arrow">
+      <navigator class="content" url="reports/reports?openID={{userID}}" hover-class="none" >
+        <text class="cuIcon-message text-orange"></text>
+        <text class="text-grey">查看用户收到的投诉</text>
+      </navigator>
+    </view>
+
+    <view wx:if="{{isDriver}}" class="cu-item arrow">
+      <navigator class="content" url="driverInfo/driverInfo?openID={{userID}}" hover-class="none" >
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">查看用户车主信息</text>
+      </navigator>
+    </view>
+
+</view>
+<view class="btn-area">
+    <button wx:if="{{!isForbidden}}" class="forbid-btn" bindtap="forbidUser">拉入黑名单</button>
+    <button wx:else class="active-btn" bindtap="activeUser">解除黑名单</button>
+</view>
+

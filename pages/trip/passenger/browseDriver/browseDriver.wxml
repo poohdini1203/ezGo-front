@@ -1,0 +1,107 @@
+<wxs module="timeCoverter" src="../../../../utils/util.wxs"></wxs>
+<view class="search-area ">
+  <form class="cu-list menu card-menu margin-top" bindsubmit="formsubmit">
+    <view class="cu-form-group ">
+      <view class="title">出发时间</view>
+      <picker mode="multiSelector" range="{{dateArray}}" value="{{dateIndex}}" bindchange="datePickerChange">
+      <view class="picker">{{dateVal?dateVal:'请选择时间'}}</view>
+      </picker>
+    </view>
+
+    <view class="cu-form-group ">
+        
+      <view class="title">出发地</view>
+        <!--绑定输入事件-->
+      <input name="departure" placeholder="不限" style="text-align:right" bindinput="getSuggestDepart" value="{{depart}}"></input>
+    </view>
+
+    <!--关键词输入提示列表渲染-->
+    <!--选择地点后就不显示了-->
+    <view wx:if="{{!isTap&&onDepart}}">
+      <view wx:for="{{suggestion}}" wx:key="index">
+        <!--绑定回填事件-->
+        <view>
+        <!--根据需求渲染相应数据-->
+        <!--渲染地址title-->
+        <view style="text-align:center;" bindtap="backfillDepart" id="{{index}}">{{item.title}}</view>
+        <!--渲染详细地址-->
+        <view style="font-size:12px;color:#666;text-align:center;">{{item.addr}}</view>
+        </view>
+      </view>
+    </view>
+
+
+
+    <view class="cu-form-group ">
+      <view class="title">目的地</view>
+        <input name="destination" placeholder="不限" style="text-align:right" bindinput="getSuggestDest" value="{{dest}}"></input>
+      </view>
+
+      <view wx:if="{{!isTap&&onDest}}">
+        <view wx:for="{{suggestion}}" wx:key="index">
+          <view>
+          <view style="text-align:center;" bindtap="backfillDest" id="{{index}}">{{item.title}}</view>
+          <view style="font-size:12px;color:#666;text-align:center;">{{item.addr}}</view>
+          </view>
+      </view>
+    </view>
+
+
+    <view class="cu-form-group ">
+      
+      <view   class="title">可乘坐人数</view>
+      <picker bindchange="peoplePickerChange" value="{{peopleIndex}}" range="{{people}}">
+        <view class="picker">
+          {{peopleIndex?people[peopleIndex]+(peopleIndex==0?'':'人'):'不限'}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="cu-form-group">
+      <view class="bottom-area">
+		    <button class="search-btn" form-type="submit">搜索</button>
+	    </view>
+    </view>
+        
+  </form>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 司机行程
+    </view>
+</view>
+
+  <view class="cu-list menu ">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{driverTrips}}" wx:for-item="trip" data-trip-id="{{trip.id}}"
+           bindtap="toDetail">
+
+      <view class="content">
+          <view class="time-people text-grey">
+             <view class="time-sec">
+                 <text class="cuIcon-timefill text-sm"></text>
+                 <text class="time">{{timeCoverter.timeStampToStr(trip.departTime)}}</text>
+             </view>
+             <view class="people-sec">
+                 <text class="cuIcon-friendfill"></text>
+                 <text class="people">{{trip.currentPeople}}/{{trip.seatCapacity}}人</text>
+             </view>
+          </view>
+        
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-green"></text>{{trip.departure}}   
+        </view>
+        <view class="text-grey text-df">
+            <text class="cuIcon-title text-orange"></text>{{trip.destination}}   
+        </view>
+        <view wx:if="{{trip.postscript}}" class="text-grey text-df">
+            <text class="cuIcon-comment "></text>{{trip.postscript}}
+        </view>
+      </view>
+
+      
+      
+    </view>
+  </view>
+
+

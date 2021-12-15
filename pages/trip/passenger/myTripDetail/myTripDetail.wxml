@@ -1,0 +1,62 @@
+<wxs module="timeCoverter" src="../../../../utils/util.wxs"></wxs>
+
+<map
+ id="myMap"
+ style="width: 100%; height:60vh; margin-top"
+ longitude="{{longitude}}" latitude="{{latitude}}"
+ scale='16'
+ polyline="{{polyline}}"
+ show-location
+ markers="{{markers}}"
+>
+</map>
+
+
+<view class="cu-list menu ">
+    <view  wx:if="{{tripInfo.hasDriver}}" class="cu-item ">
+        <view class="driver">
+            <view class="cu-tag round bg-cyan">司机已接单</view>
+            <view class="car-info">
+                <text class="plate text-xl ">{{driverInfo.plateNumber}}</text>
+                <text class="model">{{driverInfo.model}}</text>
+                <text class="cuIcon-title text-sm"></text>
+                <text class="color">{{driverInfo.color}}</text>
+            </view>
+            <view class="driver-info">
+                <text class="name">{{driverInfo.userInfo.name}}师傅</text>
+                <text wx:if="{{driverOverallRating.rateTimes!=0}}" class="cuIcon-favorfill text-yellow">{{driverOverallRating.averageRating}}分  共{{driverOverallRating.rateTimes}}次评价</text>
+                <text wx:else class="text-yellow">暂无评价</text>
+            </view>
+        </view>
+        <view class="avatar">
+            <image src="{{driverInfo.userInfo.avatarUrl}}" />
+        </view>
+    </view>
+    
+
+    <view wx:else class="cu-item arrow" >
+        <view class="cu-tag round bg-orange">等待接单</view>
+        <navigator url="../inviteDriver/inviteDriver?passengerTripID={{tripInfo.id}}">
+           邀请司机
+        </navigator>
+        
+    </view> 
+
+  <view wx:if="{{tripInfo.hasDriver}}" class="cu-bar tabbar bg-white border">
+    <view class="action" bindtap="call">
+      <view class="cuIcon-cu-image">
+        <image src="../../../../images/call.png"></image>
+      </view>
+      <view class="text-darkGray">打电话</view>
+    </view>
+    <view class="action" bindtap="changeState">
+      <view class="cuIcon-cu-image">
+        <image src="{{isPickedUp?(isFinished?'../../../../images/confirm_selected.png':'../../../../images/confirm.png'):'../../../../images/car.png'}}"></image>
+      </view>
+      <view class="text-darkGray">{{isPickedUp?(isFinished?'已确认到达':'确认到达'):'确认上车'}}</view>
+    </view>
+    
+  </view>
+  
+  <button class=" cancel-btn" bindtap="cancelTrip">取消行程</button>
+</view>

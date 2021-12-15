@@ -1,0 +1,10 @@
+<view class="view_star" bindtouchmove='changeScore'  bindtap='changeScore' >
+  <block wx:for='{{scoreArray}}' wx:key='item' ><!-- 遍历评分列表 -->
+    <!-- 设置触摸事件和点击事件为同一个方法,否则点击却不滑动的话,不触发事件 -->
+    <view class='starLen' >
+      <!-- 使用三目运算符来动态变化显示的是哪张图片,score是js中的分数,index是scoreArray的下标 -->
+      <image class='star' src="{{score > index ? score - index == 0.5  ?  callStarUrl : fullStarUrl  : nullStarUrl}}" />
+    </view>
+  </block>
+</view>
+

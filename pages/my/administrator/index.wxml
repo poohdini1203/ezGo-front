@@ -1,0 +1,14 @@
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+
+    <view class="cu-item arrow">
+      <navigator class="content" url="userManage/userList/userList" hover-class="none">
+        <text class="text-grey">用户管理</text>
+      </navigator>
+    </view>
+    
+    <view class="cu-item arrow">
+      <navigator class="content" url="driverVerify/driverVerify" hover-class="none">
+        <text class="text-grey">车主认证管理</text>
+      </navigator>
+    </view>
+</view>

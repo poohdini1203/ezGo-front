@@ -1,0 +1,122 @@
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 司机信息
+    </view>
+  </view>
+<view class="userInfo">
+    <view class="cu-list menu">
+        <view class="cu-item">
+            <view class="content">
+                <text >姓名</text>
+            </view>
+            <view class="action">
+                <text >{{driverInfo.userInfo.name}}</text>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="content">
+                <text >身份证号</text>
+            </view>
+            <view class="action">
+                <text >{{driverInfo.userInfo.iDCard}}</text>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="content">
+                <text >电话</text>
+            </view>
+            <view class="action">
+                <text >{{driverInfo.userInfo.cellphone}}</text>
+            </view>
+        </view>
+        
+    </view>
+
+    <view class="cu-bar bg-white ">
+		<view class="action">
+			身份证图片
+		</view>
+    </view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{IDCardImg}}" wx:key="{{index}}" bindtap="ViewIDCard" data-url="{{IDCardImg[index]}}">
+				<image src='{{IDCardImg[index]}}' mode='aspectFill'></image>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 车辆信息
+    </view>
+  </view>
+<view class="vehicleInfo">
+    <view class="cu-list menu">
+        <view class="cu-item">
+            <view class="content">
+                <text >车牌号</text>
+            </view>
+            <view class="action">
+                <text >{{driverRequest.plateNumber}}</text>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="content">
+                <text >车辆型号</text>
+            </view>
+            <view class="action">
+                <text >{{driverRequest.model}}</text>
+            </view>
+        </view>
+        <view class="cu-item">
+            <view class="content">
+                <text >颜色</text>
+            </view>
+            <view class="action">
+                <text >{{driverRequest.color}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="cu-bar bg-white ">
+		<view class="action">
+			驾驶证图片
+		</view>
+    </view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{drivingLicenceImg}}" wx:key="{{index}}" bindtap="ViewDrivingLicence" data-url="{{drivingLicenceImg[index]}}">
+				<image src='{{drivingLicenceImg[index]}}' mode='aspectFill'></image>
+			</view>
+		</view>
+	</view>
+
+<view class="cu-bar bg-white ">
+		<view class="action">
+			行驶证图片
+		</view>
+    </view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{vehicleLicenceImg}}" wx:key="{{index}}" bindtap="ViewVehicleLicence" data-url="{{vehicleLicenceImg[index]}}">
+				<image src='{{vehicleLicenceImg[index]}}' mode='aspectFill'></image>
+			</view>
+		</view>
+	</view>
+
+<view class="cu-bar bg-white ">
+		<view class="action">
+			车辆图片
+		</view>
+    </view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{carImg}}" wx:key="{{index}}" bindtap="ViewCar" data-url="{{carImg[index]}}">
+				<image src='{{carImg[index]}}' mode='aspectFill'></image>
+			</view>
+		</view>
+	</view>
+    
+</view>
+
