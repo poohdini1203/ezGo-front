@@ -1,19 +1,19 @@
 <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    
+
+    <view class="cu-item arrow">
+      <navigator class="content" url="info/info" hover-class="none">
+        <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
+        <text class="text-grey">个人信息</text>
+      </navigator>
+    </view>
+
     <view class="cu-item arrow">
       <navigator class="content" url="bind/bind" hover-class="none">
         <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
         <text class="text-grey">个人信息绑定</text>
       </navigator>
     </view>
-
-    <view class="cu-item arrow">
-      <navigator class="content" url="change/change" hover-class="none">
-        <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
-        <text class="text-grey">个人信息修改</text>
-      </navigator>
-    </view>
-
-    
 
     
   </view>

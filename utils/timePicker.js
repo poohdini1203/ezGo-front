@@ -1,7 +1,7 @@
 const weekArr = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']; //一周的格式
 const strArr = ['今天','明天','后天'];
 
-export class DatePicker{
+export class TimePicker{
     constructor( obj ){
         this.date = new Date;
         this.year = this.date.getFullYear();
@@ -34,10 +34,12 @@ export class DatePicker{
         // } 
 
         let count=1;
-        let j=this.date.getDate();
+         let j=this.date.getDate();
         
         for(let i = start; i <= end; i++){
 
+            
+            
             const days = this.getMonthDay(i);
 
             for(; j <= days; j++){
@@ -63,6 +65,7 @@ export class DatePicker{
                
             }
             j=1;
+
         }    
 
         return array;
@@ -143,15 +146,16 @@ export class DatePicker{
         return [`今天 ${weekArr[this.week]}`,this.withZero(this.hours),this.withZero(this.minutes)];
     }
 
-    datePicker(){
+    timePicker(){
         let currentDateArr = [];
         let dateAll = [[],[],[]];
 
         let defaultDate = this.defaultTime.length>0 || this.getNowDate();
         
 
+        
         //显示范围只会是这个月和下个月之间
-        dateAll[0] = this.getMonth(this.date.getMonth()+1, this.date.getMonth()+2);//几月几日 星期几   
+        dateAll[0] = this.getMonth(this.month,this.month+1);//几月几日 星期几   
         dateAll[1] = this.getLoopArray(0, 23);//小时
 
         dateAll[2] = this.getLoopArray(0, 59);//分
@@ -189,7 +193,32 @@ export class DatePicker{
             let nextDay = this.day+2>todayDay ? this.day+2-31 : this.day+2;
             return `${ this.withZero(nextMonth) }月${ this.withZero(nextDay) }日 ${tempTime}`
         }
-        return `${tempDate} ${tempTime}`;
+        return `${tempDate}${tempTime}`;
+    }
+    dateToStr(date){
+        var year = date.getFullYear(); 
+        var month =(date.getMonth() + 1).toString(); 
+        var day = (date.getDate()).toString(); 
+        let hour=(date.getHours().toString())
+        let minute=(date.getMinutes().toString())
+        let second=(date.getMinutes().toString())
+        if (month.length == 1) { 
+            month = "0" + month; 
+        } 
+        if (day.length == 1) { 
+            day = "0" + day; 
+        }
+        if(hour.length==1){
+            hour = "0" + hour; 
+        }
+        if(minute.length==1){
+            minute = "0" + minute;
+        }
+        if(second.length==1){
+            second = "0" + second;
+        }
+        var dateTime = year + "-" + month + "-" + day+" "+hour+":"+minute+":"+second;
+        return dateTime; 
     }
 }
 

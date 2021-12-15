@@ -1,6 +1,10 @@
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
 .bottom-area .submit-btn {
-    position: fixed;
-     bottom: 0;
-     width: 100%;
-     background-color: #00ae9d;
-   }
+position: fixed;
+bottom: 0;
+width: 100%;
+color: white;
+background-color: #00ae9d;
+}

@@ -1,17 +1,18 @@
 .navArea {
-  height: 45px;
+  height: 90rpx;
 }
 .navArea .nav {
   position: fixed;
-  top: 0;
+  top: 0rpx;
   z-index: 1;
 }
-form .bottom-area {
+.submit-btn {
   position: fixed;
   bottom: 0;
-  width: 100%;
-}
-form .bottom-area .submit-btn {
-  width: 100%;
+  border-radius: 0;
+  color: aliceblue;
+  font-size: 40rpx;
+  height: 110rpx;
+  width: 100vw;
   background-color: #00ae9d;
 }

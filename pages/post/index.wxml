@@ -1,3 +1,8 @@
+<!-- 
+<nav-component my-property='{{aa}}' /> -->
+
+
+
 <view class="navArea">
   <view class="nav" >
     <scroll-view scroll-x class="bg-white nav" >
@@ -80,12 +85,12 @@
     </picker>
 	</view>
 	
-	<view wx:if="{{TabCur==0}}" class="cu-form-group " >
+	<view  class="cu-form-group " >
 		<view class="title">备注</view>
-		<input name="postscript" placeholder="备注" style="text-align:right"></input>
-  </view>
+		  <input name="postscript" placeholder="备注" style="text-align:right"></input>
+    </view>
 
-<view  class="cu-form-group " >
+  <view  class="cu-form-group " >
 		
 		
   </view>
@@ -96,7 +101,7 @@
   </view>
   
 	<view class="bottom-area">
-		<button class="weui-btn_cell submit-btn" form-type="submit">发布</button>
+		<button class="submit-btn" form-type="submit" >发布</button>
 	</view>
 	
 	

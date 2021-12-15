@@ -1,38 +1,41 @@
 <form bindsubmit="formSubmit">
-    <view class="cu-form-group margin-top" >
-		<view class="title">姓名</view>
-		<input placeholder="输入框带个图标"></input>
-		
-	</view>
-
-    <view class="cu-form-group " >
-		<view class="title">身份证</view>
-		<input placeholder="输入框带个图标"></input>
-		
-	</view>
-
-<view class="cu-form-group">
+    <view class="cu-form-group margin-top">
 		<view class="title">手机号码</view>
-		<input placeholder="输入框带标签"></input>
+		<input placeholder="输入手机号"  maxlength="11" bindinput="getPhone" name='cellphone'></input>
 		<view class="cu-capsule radius">
 			<view class="cu-tag bg-blue">
 				+86
 			</view>
 			<view class="cu-tag line-blue">
-				中国大陆
+				中国大陆 
 			</view>
 		</view>
 	</view>
 
 
 
-	<view class="cu-form-group">
+	<view class="cu-form-group " >
 		<view class="title">验证码</view>
-		<input placeholder="输入框带个按钮"></input>
-		<button class="cu-btn bg-green shadow">验证码</button>
+		<input placeholder="输入验证码" name="code"></input>
+		<button class="cu-btn bg-green " bindtap="getVerificationCode" hidden="{{codeButtonHide}}" disabled='{{codeButtonDisable}}'> {{codeButtonName}} </button>
 	</view>
 	
-    <view class="bottom-area">
-		<button class="weui-btn_cell submit-btn" form-type="submit">绑定</button>
+	
+	
+	<view class="cu-form-group " >
+		<view class="title">姓名</view>
+		<input placeholder="输入真实姓名" name="name"></input>
+		
 	</view>
+
+    <view class="cu-form-group " >
+		<view class="title">身份证</view>
+		<input placeholder="输入身份证号" maxlength="18" name="IDCard"></input>
+	</view>
+
+	
+	
+    
+	<button class=" submit-btn" form-type="submit" >确定</button>
+	
 </form>

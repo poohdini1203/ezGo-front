@@ -41,6 +41,53 @@
           "pathName": "pages/my/driver/driver",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/my/settings/info/info",
+          "pathName": "pages/my/settings/info/info",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/trip/index",
+          "pathName": "pages/trip/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/trip/passenger/myTripDetail/myTripDetail",
+          "pathName": "pages/trip/passenger/myTripDetail/myTripDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/trip/driver/browsePassenger/browsePassenger",
+          "pathName": "pages/trip/driver/browsePassenger/browsePassenger",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/trip/driver/myInvitations/myInvitations",
+          "pathName": "pages/trip/driver/myInvitations/myInvitations",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/history/history",
+          "pathName": "pages/my/history/history",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/administrator/driverVerify/driverVerify",
+          "pathName": "pages/my/administrator/driverVerify/driverVerify",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/trip/driver/myTripDetail/myTripDetail",
+          "pathName": "pages/trip/driver/myTripDetail/myTripDetail",
+          "scene": null
         }
       ]
     }

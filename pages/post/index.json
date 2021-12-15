@@ -1,5 +1,14 @@
 {
-  "usingComponents": {
+    "usingComponents": {
+      "nav-component": "../../components/nav-component/nav-component"
+    },
     
-  }
+      
+      
+      
+      "navigationBarTitleText": "发布行程"
+      
+      
 }
+
+

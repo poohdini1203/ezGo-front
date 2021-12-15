@@ -1,39 +1,214 @@
 // app.js
 App({
   onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
+      // setInterval(() => {
+        
+      //   var curPages =  getCurrentPages();
+        
+      //   if(!this.globalData.isLogin&&curPages[0].route!="pages/my/index/index"){
+      //     wx.showModal({
+      //       title: '请先登录！',
+      //       content: '',
+      //       showCancel: false,
+      //       cancelText: '取消',
+      //       cancelColor: '#000000',
+      //       confirmText: '去登录',
+      //       confirmColor: '#3CC51F',
+      //       success: (result) => {
+      //         if(result.confirm){
+      //           wx.switchTab({
+                  
+      //             url: '/pages/my/index/index',
+      //             success: (result)=>{
+                    
+      //             },
+      //             fail: ()=>{},
+      //             complete: ()=>{}
+      //           }); 
+      //         }
+      //       },
+      //       fail: ()=>{},
+      //       complete: ()=>{}
+      //     });
+      //   }
+      // }, 300);
+    
+  },
+  checkLogin(){
+    let that=this
+    if(!that.globalData.isLogin){
+      wx.showModal({
+        title: '请先登录!',
+        content: '',
+        showCancel: false,
+        cancelText: '取消',
+        cancelColor: '#000000',
+        confirmText: '确定',
+        confirmColor: '#3CC51F',
+        success: (result) => {
+          if(result.confirm){
+            wx.switchTab({
+              url: '/pages/my/index/index',
+              success: (result)=>{
+                
+              },
+            }); 
+          }
+        },
+       
+      });
+      return false
+    }
+    return true
+  },
+  checkLoginCancel(){
+    let that=this
+    if(!that.globalData.isLogin){
+      wx.showModal({
+        title: '请先登录!',
+        content: '',
+        showCancel: true,
+        cancelText: '取消',
+        cancelColor: '#000000',
+        confirmText: '确定',
+        confirmColor: '#3CC51F',
+        success: (result) => {
+          if(result.confirm){
+            wx.switchTab({
+              url: '/pages/my/index/index',
+              success: (result)=>{
+                
+              },
+            }); 
+          }
+        },
+       
+      });
+      return false
+    }
+    return true
+  },
+  checkBind(){
+    let that=this
+    if(!that.globalData.hasUserInfo){
+      wx.showModal({
+        title: '请在设置中绑定个人信息!',
+        content: '',
+        showCancel: false,
+        cancelText: '取消',
+        cancelColor: '#000000',
+        confirmText: '确定',
+        confirmColor: '#3CC51F',
+        success: (result) => {
+          if(result.confirm){
+            wx.switchTab({
+              url: '/pages/my/index/index',
+              success: (result)=>{
+                
+              },
+            }); 
+          }
+        },        
+      });
+      return false
+    }
+    return true
+  },
+  checkBindCancel(){
+    let that=this
+    if(!that.globalData.hasUserInfo){
+      wx.showModal({
+        title: '请在设置中绑定个人信息!',
+        content: '',
+        showCancel: true,
+        cancelText: '取消',
+        cancelColor: '#000000',
+        confirmText: '确定',
+        confirmColor: '#3CC51F',
+        success: (result) => {
+          if(result.confirm){
+            wx.switchTab({
+              url: '/pages/my/index/index',
+              success: (result)=>{
+                
+              },
+            }); 
+          }
+        },        
+      });
+      return false
+    }
+    return true
+  },
+  checkDriver(){
+    let that=this
+      if(!that.globalData.isDriver){
+        wx.showModal({
+          title: '请先完成车主认证！!',
+          content: '',
+          showCancel: false,
+          cancelText: '取消',
+          cancelColor: '#000000',
+          confirmText: '确定',
+          confirmColor: '#3CC51F',
+          success: (result) => {
+            if(result.confirm){
+              wx.switchTab({
+                url: '/pages/my/index/index',
+                success: (result)=>{
+                  
+                },
+              }); 
             }
-          })
-        }
+          },        
+        });
+        return false
       }
-    })
+    return true
+  },
+  checkDriverCancel(){
+    let that=this
+      if(!that.globalData.isDriver){
+        wx.showModal({
+          title: '请先完成车主认证！!',
+          content: '',
+          showCancel: true,
+          cancelText: '取消',
+          cancelColor: '#000000',
+          confirmText: '确定',
+          confirmColor: '#3CC51F',
+          success: (result) => {
+            if(result.confirm){
+              wx.switchTab({
+                url: '/pages/my/index/index',
+                success: (result)=>{
+                  
+                },
+              }); 
+            }
+          },        
+        });
+        return false
+      }
+    return true
   },
   globalData: {
-    userInfo: null
+    IP:'http://192.168.1.224:8080',
+    userInfo: {
+      openID:"",
+      avatarUrl:"",
+      nickName:'',
+      name:'',
+      IDCard:'',
+      cellphone:'',
+    },
+    token:'',
+    isLogin:false,
+    isAdmin:false,
+    hasUserInfo:false,
+    
+    //读driver表看审核有没有通过
+    isDriver:false,
+    
   }
 })

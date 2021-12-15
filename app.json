@@ -1,13 +1,38 @@
 {
   "pages": [
-    "pages/schedul/index",
+    "pages/trip/index",
     "pages/post/index",
     "pages/my/index/index",
     "pages/my/settings/settings",
     "pages/index/index",
     "pages/my/settings/bind/bind",
-    "pages/my/settings/change/change",
-    "pages/my/driver/driver"
+    "pages/my/driver/driver",
+    "pages/my/settings/info/info",
+    "pages/my/settings/info/changeCellphone/changeCellphone",
+    "pages/my/settings/info/changeNickname/changeNickname",
+    "pages/trip/passenger/myTripDetail/myTripDetail",
+    "pages/trip/driver/browsePassenger/browsePassenger",
+    "pages/trip/driver/passengerTripDetail/passengerTripDetail",
+    "pages/trip/driver/myTripDetail/myTripDetail",
+    "pages/trip/driver/invitePassenger/invitePassenger",
+    "pages/trip/passenger/inviteDriver/inviteDriver",
+    "pages/trip/passenger/browseDriver/browseDriver",
+    "pages/trip/passenger/driverTripDetail/driverTripDetail",
+    "pages/trip/passenger/joinDriverTrip/joinDriverTrip",
+    "pages/trip/driver/myInvitations/myInvitations",
+    "pages/my/history/history",
+    "pages/my/administrator/index",
+    "pages/my/administrator/driverVerify/driverVerify",
+    "pages/my/administrator/driverVerify/driverDetail/driverDetail",
+    "pages/my/history/myTripDetail/myTripDetail",
+    "pages/my/history/driverTripDetail/driverTripDetail",
+    "pages/my/administrator/userManage/userList/userList",
+    "pages/my/administrator/userManage/userDetail/userDetail",
+    "pages/my/history/myTripDetail/reportDriver/reportDriver",
+    "pages/my/history/driverTripDetail/reportPassenger/reportPassenger",
+    "pages/my/administrator/userManage/userDetail/reports/reports",
+    "pages/my/administrator/userManage/userDetail/userTrips/userTrips",
+    "pages/my/administrator/userManage/userDetail/driverInfo/driverInfo"
   ],
   "permission": {
     "scope.userLocation": {
@@ -16,19 +41,20 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "EZGO",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default"
   },
   "tabBar": {
     "color": "#8a8a8a",
-    "selectedColor": "00ae9d",
-    "backgroundColor": "fafafa",
+    "selectedColor": "#00ae9d",
+    "backgroundColor": "#ffffff",
     "position": "bottom",
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/schedul/index",
+        "pagePath": "pages/trip/index",
         "text": "行程",
         "iconPath": "images/schedul.png",
         "selectedIconPath": "images/schedul_selected.png"
@@ -47,6 +73,5 @@
       }
     ]
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

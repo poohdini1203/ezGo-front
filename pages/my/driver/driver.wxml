@@ -1,27 +1,120 @@
+
+
 <form bindsubmit="formSubmit">
+
+	<view class="cu-form-group margin-top" >
+		<view class="title">车牌号</view>
+		<input placeholder="车牌号" name="plateNumber"></input>
+		
+	</view>
+
+    <view class="cu-form-group " >
+		<view class="title">车辆型号</view>
+		<input placeholder="车辆型号"  name="model"></input>
+	</view>
+
+	<view class="cu-form-group " >
+		<view class="title">颜色</view>
+		<input placeholder="颜色"  name="color"></input>
+	</view>
+
     <view class="cu-bar bg-white margin-top">
 		<view class="action">
 			上传身份证正反面
 		</view>
 		<view class="action">
-			{{imgList.length}}/2
+			{{IDCard.length}}/2
 		</view>
 	</view>
 	<view class="cu-form-group">
 		<view class="grid col-4 grid-square flex-sub">
-			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-				<image src='{{imgList[index]}}' mode='aspectFill'></image>
-				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+			<view class="bg-img" wx:for="{{IDCard}}" wx:key="{{index}}" bindtap="ViewIDCard" data-url="{{IDCard[index]}}">
+				<image src='{{IDCard[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelIDCard" data-index="{{index}}">
 					<text class="cuIcon-close"></text>
 				</view>
 			</view>
-			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+			<view class="solids" bindtap="ChooseIDCard" wx:if="{{IDCard.length<4}}">
 				<text class="cuIcon-cameraadd"></text>
 			</view>
 		</view>
 	</view>
 
+<!-- 驾驶证 -->
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			上传驾驶证
+		</view>
+		<view class="action">
+			{{drivingLicence.length}}/2
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{drivingLicence}}" wx:key="{{index}}" bindtap="ViewDriverLicence" data-url="{{drivingLicence[index]}}">
+				<image src='{{drivingLicence[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelDriverLicence" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseDriverLicence" wx:if="{{drivingLicence.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+	<!-- 行驶证 -->
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			上传行驶证
+		</view>
+		<view class="action">
+			{{vehicleLicence.length}}/2
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{vehicleLicence}}" wx:key="{{index}}" bindtap="ViewVehicleLicence" data-url="{{vehicleLicence[index]}}">
+				<image src='{{vehicleLicence[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelVehicleLicence" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseVehicleLicence" wx:if="{{vehicleLicence.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+	<!-- 车辆图片 -->
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			上传汽车照片
+		</view>
+		<view class="action">
+			{{carImg.length}}/2
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{carImg}}" wx:key="{{index}}" bindtap="ViewCarImg" data-url="{{carImg[index]}}">
+				<image src='{{carImg[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelCarImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseCarImg" wx:if="{{carImg.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+	<view class="cu-form-group"> </view>
+	<view class="cu-form-group"> </view>
+	
+	
+
    <view class="bottom-area">
-		<button class="weui-btn_cell submit-btn" form-type="submit">认证</button>
+		<button class="weui-btn_cell submit-btn" form-type="submit" >认证</button>
 	</view>
 </form>
