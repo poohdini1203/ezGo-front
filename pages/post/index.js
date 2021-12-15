@@ -4,7 +4,7 @@ var QQMapWX = require('../../utils/qqmap-wx-jssdk');
  
 // 实例化API核心类
 var qqmapsdk = new QQMapWX({
-    key: '4OIBZ-533HF-OVCJ2-JQ3KM-GN2RV-XDBYY' // 必填
+    key: '' // 必填
 });
 import { TimePicker } from '../../utils/timePicker';
 
